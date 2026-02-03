@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { createContext, useState, useEffect } from "react";
 
 const CitiesContext = createContext();
@@ -30,4 +31,11 @@ function CitiesProvider({ children }) {
   );
 }
 
-export { CitiesProvider };
+function useCities() {
+  const context = useContext(CitiesContext);
+  if (context === undefined)
+    throw new Error("CitiesContext is used outside ContextProvider");
+  return context;
+}
+
+export { CitiesProvider, useCities };
