@@ -13,7 +13,7 @@ export default function CountryList() {
       <Message message="Click a country on the map to add your first country!" />
     );
   const countries = cities.reduce((arr, city) => {
-    if (!arr.map((el) => el.city).includes(city.country))
+    if (!arr.map((el) => el.country).includes(city.country))
       return [...arr, { country: city.country, emoji: city.emoji }];
     else return arr;
   }, []);
